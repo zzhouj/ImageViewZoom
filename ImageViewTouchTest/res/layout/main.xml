@@ -4,12 +4,13 @@
     android:layout_height="fill_parent"
     android:orientation="vertical" >
 
-    <it.sephiroth.android.library.imagezoom.ImageViewTouch
-        android:layout_weight="1"
+    <it.sephiroth.android.library.imagezoom.test.ImageViewFlow
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:scaleType="fitCenter" />
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        android:src="@drawable/jp_pinyin" />
 
     <Button
         android:id="@+id/button"

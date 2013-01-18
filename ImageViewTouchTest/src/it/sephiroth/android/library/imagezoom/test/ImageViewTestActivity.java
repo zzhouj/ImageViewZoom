@@ -1,6 +1,5 @@
 package it.sephiroth.android.library.imagezoom.test;
 
-import it.sephiroth.android.library.imagezoom.ImageViewTouch;
 import it.sephiroth.android.library.imagezoom.test.utils.DecodeUtils;
 import android.app.Activity;
 import android.database.Cursor;
@@ -16,7 +15,7 @@ import android.widget.Toast;
 
 public class ImageViewTestActivity extends Activity {
 
-	ImageViewTouch mImage;
+	ImageViewFlow mImage;
 	Button mButton;
 
 	@Override
@@ -29,7 +28,7 @@ public class ImageViewTestActivity extends Activity {
 	@Override
 	public void onContentChanged() {
 		super.onContentChanged();
-		mImage = (ImageViewTouch) findViewById( R.id.image );
+		mImage = (ImageViewFlow) findViewById( R.id.image );
 		mButton = (Button) findViewById( R.id.button );
 		
 		mButton.setOnClickListener( new OnClickListener() {
@@ -55,7 +54,9 @@ public class ImageViewTestActivity extends Activity {
 				{
 					//mImage.setMinZoom( 1.5f ); // you can set the minimum zoom of the image ( must be called before anything else )
 					//mImage.setFitToScreen( true ); // calling this will force the image to fit the ImageView container width/height
-					mImage.setImageBitmap( bitmap, true, null, 5.0f );
+					//mImage.setImageBitmap( bitmap, true, null, 5.0f );
+					mImage.setImageBitmap(bitmap);
+					mImage.setFlowScrollTime(60 * 1000);
 				} else {
 					Toast.makeText( this, "Failed to load the image", Toast.LENGTH_LONG ).show();
 				}
