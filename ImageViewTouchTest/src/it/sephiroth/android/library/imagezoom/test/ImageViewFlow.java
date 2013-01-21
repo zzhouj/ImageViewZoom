@@ -17,6 +17,7 @@ public class ImageViewFlow extends ImageView {
 	private static final long FLOW_ANI_SWITCH_DELAY = 2000;
 	private static final float FLOW_ANI_MIN_STEP = 0.1F;
 
+	private Matrix mImageMatrix = new Matrix();
 	private float mScale;
 	private float mTranslateX;
 	private float mTranslateY;
@@ -90,10 +91,10 @@ public class ImageViewFlow extends ImageView {
 	}
 
 	private void setImageMatrix() {
-		Matrix matrix = new Matrix();
-		matrix.postScale(mScale, mScale);
-		matrix.postTranslate(mTranslateX, mTranslateY);
-		setImageMatrix(matrix);
+		mImageMatrix.reset();
+		mImageMatrix.postScale(mScale, mScale);
+		mImageMatrix.postTranslate(mTranslateX, mTranslateY);
+		setImageMatrix(mImageMatrix);
 	}
 
 	private void startOrStopFlowAni() {
